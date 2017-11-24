@@ -1,0 +1,26 @@
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:src="@drawable/download"/>
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kangra is the most populous district of the Indian state of Himachal Pradesh, India. Dharamshala is the administrative headquarters of the district. It is home of  Masroor Rock Cut Temple, also known as Himalayan Pyramids and wonder of the world for being likely contender for the UNESCO World Heritage Site. Hindu genealogy registers at Jawalamukhi, Himachal Pradesh are kept here at Jawalamukhi. Dharamshala, the district headquarters, is also the headquarters of the Tibetan government-in-exile, headed by the His Holiness the Dalai Lama. Jwalamukhi, also known as Jwala ji, is famous for its ancient temple of the goddess of the same name, and features holy flames that run on natural gas. Other important temples include  Brajeshwari Devi temple, Chamunda Devi temple, Chintpurni temple, Bhagsunag Temple in McLeodGanj, Mahakal and Baijnath's Shiva temple in Baijnath. There are also important, major Muslim worship Place In kangra district Jama Masjid Dharamshala, Buddhist temples in Dharamshala, Sidhbari and the Bir Tibetan Colony in Bir. Historical villages of Pragpur and Garli are also located here."
+        android:layout_below="@+id/imageView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</LinearLayout>
