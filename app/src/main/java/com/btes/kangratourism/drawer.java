@@ -1,11 +1,7 @@
 package com.btes.kangratourism;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,36 +12,46 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.btes.kangratourism.Fragments.Category;
-
-import static com.btes.kangratourism.R.id.toolbar;
+import com.btes.kangratourism.Fragments.Home;
+import com.btes.kangratourism.Fragments.Overview;
 
 public class drawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    Toolbar toolbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle("Kangra Tourism");
+        Home c=new Home();
+        toolbar.setTitle("Home");
+        FragmentTransaction frg = getSupportFragmentManager().beginTransaction();
+        frg.replace(R.id.fragmentoverview,c);
+        frg.commit();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
+
+
     }
 
     @Override
@@ -87,18 +93,29 @@ public class drawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.home) {
+            Home h=new Home();
+            toolbar.setTitle("Home");
+            FragmentTransaction frg = getSupportFragmentManager().beginTransaction();
+            frg.replace(R.id.fragmentoverview,h);
+            frg.commit();
 
         } else if (id == R.id.overview) {
-            Category c=new Category();
-            item.setTitle("Overview");
-            FragmentTransaction frg = getSupportFragmentManager().beginTransaction();
-            frg.replace(R.id.farm,c);
-            frg.commit();
+
+            Overview o=new Overview();
+            toolbar.setTitle("Overview");
+            FragmentTransaction frg1 = getSupportFragmentManager().beginTransaction();
+            frg1.replace(R.id.fragmentoverview,o);
+            frg1.commit();
 
 
         } else if (id == R.id.categories) {
-            Intent i=new Intent(getApplicationContext(),First.class);
-            startActivity(i);
+            Category c=new Category();
+
+            toolbar.setTitle("Categories");
+            FragmentTransaction frg1 = getSupportFragmentManager().beginTransaction();
+            frg1.replace(R.id.fragmentoverview,c);
+            frg1.commit();
+
         } else if (id == R.id.gallery) {
 
         } else if (id == R.id.share) {

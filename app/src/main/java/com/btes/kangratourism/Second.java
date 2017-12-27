@@ -1,10 +1,12 @@
 package com.btes.kangratourism;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -19,27 +21,33 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.btes.kangratourism.Fragments.Temples;
+
+
 import java.util.HashMap;
 
 public class Second extends AppCompatActivity {
     TextView txttemple;
     ImageView imgtemple;
-    String s[]={"BAGLAMUKHI TEMPLE","JWALAMUKHI TEMPLE","BRIJESHWARI TEMPLE","BAIJNATH TEMPLE","CHAMUNDA DEVI","MASROOR TEMPLE","BHAGSUNAG TEMPLE","KUNAL PATHRI","NAGNI TEMPLE"};
+    String s[]={"BAGLAMUKHI TEMPLE","JWALAMUKHI TEMPLE","BRIJESHWARI TEMPLE","BAIJNATH TEMPLE","CHAMUNDA TEMPLE","MASROOR TEMPLE","BHAGSUNAG TEMPLE","KUNAL PATHRI TEMPLE","NAGNI TEMPLE"};
     int image[]={R.drawable.baglamukhi,R.drawable.jwalaji,R.drawable.kangra,R.drawable.baijnathtemple,R.drawable.chamundakangara,R.drawable.masroor_temple,R.drawable.bhagsutemple,R.drawable.kunalpathri,R.drawable.nagani};
     String ls[]={"Dal Lake","Maharana Partap Sagar Lake","Kareri Lake"};
     int limage[]={R.drawable.dallake1,R.drawable.maharanapratapsagar,R.drawable.kareri};
     ListView ltsview;
+    Toolbar toolbar;
     int i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         Intent i=getIntent();
 
         //getActionBar().setTitle("Temple Categories");
         String s1=i.getStringExtra("S1");
+        toolbar.setTitle(s1);
         ltsview=(ListView) findViewById(R.id.ltsview);
         switch(s1) {
 
@@ -49,9 +57,11 @@ public class Second extends AppCompatActivity {
             ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+
+                   Intent i1=new Intent(getApplicationContext(),Blankfragment.class);
                     i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
                     startActivity(i1);
+
                 }
             });
             break;
@@ -61,7 +71,8 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                        toolbar.setTitle("Lakes");
+                       Intent i1 = new Intent(getApplicationContext(), Blankfragment.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
                         startActivity(i1);
                     }
@@ -73,9 +84,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);
+                        startActivity(i1);*/
                     }
                 });
                 break;
@@ -85,9 +96,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);
+                        startActivity(i1);*/
                     }
                 });
                 break;
@@ -97,9 +108,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                        /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);
+                        startActivity(i1);*/
                     }
                 });
                 break;
@@ -109,9 +120,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);
+                        startActivity(i1);*/
                     }
                 });
                 break;

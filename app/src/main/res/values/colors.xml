@@ -5,5 +5,17 @@
     <color name="colorAccent">#06f706</color>
     <color name="texcolor">#fff70e06</color>
     <color name="click">#000000</color>
+    <color name="FontColor">#96040e</color>
+    <color name="Rating">#ca840a</color>
+    <color name="AddColor">#0d7306</color>
+    <color name="titleColor">#ffffff</color>
+    <color name="splashColor">#ffffff</color>
+    <color name="golden">#ffcc01</color>
+    <color name="grey">#c2b8b8</color>
+    <color name="splash">#FFFFFF</color>
+    <color name="gallery">#0e78e9</color>
+    <color name="custgallery">#bf4e4e4e</color>
+    <color name="activity">#bebcbc</color>
+    <color name="temp">#fdffffff</color>
 
 </resources>
