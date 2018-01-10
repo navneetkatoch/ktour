@@ -1,38 +1,32 @@
 package com.btes.kangratourism;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.btes.kangratourism.Fragments.Temples;
-
-
-import java.util.HashMap;
 
 public class Second extends AppCompatActivity {
     TextView txttemple;
     ImageView imgtemple;
-    String s[]={"BAGLAMUKHI TEMPLE","JWALAMUKHI TEMPLE","BRIJESHWARI TEMPLE","BAIJNATH TEMPLE","CHAMUNDA TEMPLE","MASROOR TEMPLE","BHAGSUNAG TEMPLE","KUNAL PATHRI TEMPLE","NAGNI TEMPLE"};
-    int image[]={R.drawable.baglamukhi,R.drawable.jwalaji,R.drawable.kangra,R.drawable.baijnathtemple,R.drawable.chamundakangara,R.drawable.masroor_temple,R.drawable.bhagsutemple,R.drawable.kunalpathri,R.drawable.nagani};
+    String s[]={"Baglamukhi Temple","Jwalamukhi Temple","Brijeshwari Temple","Baijnath Temple","Mahakal Temple","Chamunda Devi Temple","Aghanzar Temple","Indru Nag Temple","Masroor Rock Cut Temple ","Bhagsunath Temple","Kunal Pathri Temple","Nagni Mata Temple"};
+    int image[]={R.drawable.baglamukhi,R.drawable.jwalaji,R.drawable.kangra,R.drawable.baijnathtemple,R.drawable.mahakaal,R.drawable.chamunda,R.drawable.aghanjarmahadevtemple,R.drawable.indrunagtemple,R.drawable.masroor_temple,R.drawable.bhagsutemple,R.drawable.kunalpathri,R.drawable.nagani};
     String ls[]={"Dal Lake","Maharana Partap Sagar Lake","Kareri Lake"};
     int limage[]={R.drawable.dallake1,R.drawable.maharanapratapsagar,R.drawable.kareri};
+    String ts[]={"Heritage Village Pragpur","Kangra Fort","Bhatu Monestari","Palampur Tea Garden","Gopalpur Zoo","Sobha Singh Art Gallery","Mcleodganj Monestari","Bhagsu Water Fall","Gyuto Monastery","Pong Dam Sanchutary"};
+    int timage[]={R.drawable.heritage,R.drawable.kangrafort,R.drawable.bhatumonestri,R.drawable.palampurtea,R.drawable.gopalpurzoo,R.drawable.sobhasinghsartgallery,R.drawable.dalai,R.drawable.bhagsu,R.drawable.gyto,R.drawable.pong};
+   String trs[]={"Bada Bhangal","Himani Chamunda","Triund and Indhar Pass"};
+   int trsimage[]={R.drawable.badabhangal,R.drawable.himanichamunda,R.drawable.triund1};
     ListView ltsview;
     Toolbar toolbar;
     int i;
@@ -47,11 +41,12 @@ public class Second extends AppCompatActivity {
 
         //getActionBar().setTitle("Temple Categories");
         String s1=i.getStringExtra("S1");
-        toolbar.setTitle(s1);
+        
         ltsview=(ListView) findViewById(R.id.ltsview);
         switch(s1) {
 
             case "Temples":
+                toolbar.setTitle("Temples");
             MyAdapter2 adapter1=new MyAdapter2(getApplicationContext(),s,image);
             ltsview.setAdapter(adapter1);
             ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -79,26 +74,26 @@ public class Second extends AppCompatActivity {
                 });
                 break;
             case "Tourist Places":
-                MyAdapter2 adapter2=new MyAdapter2(getApplicationContext(),s,image);
+                MyAdapter2 adapter2=new MyAdapter2(getApplicationContext(),ts,timage);
                 ltsview.setAdapter(adapter2);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                        Intent i1 = new Intent(getApplicationContext(), Blankfragment.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);*/
+                        startActivity(i1);
                     }
                 });
                 break;
-            case "Stadium":
-                MyAdapter2 adapter4=new MyAdapter2(getApplicationContext(),s,image);
+            case "Trekking Places":
+                MyAdapter2 adapter4=new MyAdapter2(getApplicationContext(),trs,trsimage);
                 ltsview.setAdapter(adapter4);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                        Intent i1 = new Intent(getApplicationContext(), Blankfragment.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);*/
+                        startActivity(i1);
                     }
                 });
                 break;
@@ -108,9 +103,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                        Intent i1 = new Intent(getApplicationContext(), Blankfragment.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);*/
+                        startActivity(i1);
                     }
                 });
                 break;
@@ -120,9 +115,9 @@ public class Second extends AppCompatActivity {
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                       /* Intent i1 = new Intent(getApplicationContext(), baijnath.class);
+                       Intent i1 = new Intent(getApplicationContext(), Blankfragment.class);
                         i1.putExtra("S", ltsview.getItemAtPosition(i).toString());
-                        startActivity(i1);*/
+                        startActivity(i1);
                     }
                 });
                 break;
@@ -147,9 +142,9 @@ class MyAdapter2 extends ArrayAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflator = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflator.inflate(R.layout.litview, parent, false);
-        ImageView myImage = (ImageView) row.findViewById(R.id.imgtemple);
-        TextView myTitle = (TextView) row.findViewById(R.id.txttemple);
+        @SuppressLint("ViewHolder") View row = inflator.inflate(R.layout.litview, parent, false);
+        ImageView myImage = row.findViewById(R.id.imgtemple);
+        TextView myTitle = row.findViewById(R.id.txttemple);
 
         myImage.setImageResource(imgarray[position]);
         myTitle.setText(stitle[position]);

@@ -24,7 +24,7 @@ public class Category extends Fragment {
     ImageView imageView3;
     GridView grid;
     Toolbar toolbar;
-    String s[] = {"Temples", "Lakes", "Tourist Places", "Treking Places", "Hotels", "Transport Facility"};
+    String s[] = {"Temples", "Lakes", "Tourist Places", "Trekking Places", "Hotels", "Transport Facility"};
     int image[] = {R.drawable.temple, R.drawable.lake, R.drawable.tourism, R.drawable.trek, R.drawable.taragarh, R.drawable.himachal};
 
     @Override
@@ -43,6 +43,7 @@ public class Category extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 Intent i2 =new Intent(getContext(),Second.class);
+
                 i2.putExtra("S1",grid.getItemAtPosition(i).toString());
                 startActivity(i2);
             }

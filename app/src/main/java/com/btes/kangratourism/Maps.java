@@ -57,12 +57,12 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback,
         String s=i.getStringExtra("S");
         switch (s)
         {
-            case"BAGLAMUKHI TEMPLE":
+            case"Baglamukhi Temple":
                 LatLng bagla = new LatLng(31.9679, 76.2053);
                 mMap.addMarker(new MarkerOptions().position(bagla).title("Baglamukhi Temple"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(bagla));
                 break;
-            case "JWALAMUKHI TEMPLE":
+            case "Jwalamukhi Temple":
                 LatLng jwala = new LatLng(31.8752, 76.3203);
                 mMap.addMarker(new MarkerOptions().position(jwala).title("Jwalamukhi Temple"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(jwala));
@@ -79,13 +79,58 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback,
                 break;
             case "CHAMUNDA TEMPLE":
                 LatLng chamunda = new LatLng(32.1483, 76.4195);
-                mMap.addMarker(new MarkerOptions().position(chamunda).title("Baijnath Temple"));
+                mMap.addMarker(new MarkerOptions().position(chamunda).title("Chamunda Temple"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(chamunda));
                 break;
             case "MASROOR TEMPLE":
                 LatLng masroor = new LatLng(32.0729, 76.13);
                 mMap.addMarker(new MarkerOptions().position(masroor).title("Masroor Temple"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(masroor));
+                break;
+            case "BHAGSUNAG TEMPLE":
+                LatLng bhagsu  = new LatLng(32.2465, 76.3326);
+                mMap.addMarker(new MarkerOptions().position(bhagsu).title("Bhagsunag Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(bhagsu));
+                break;
+            case "KUNAL PATHRI TEMPLE":
+                LatLng kunal  = new LatLng(32.2726, 76.357);
+                mMap.addMarker(new MarkerOptions().position(kunal).title("Kunal Pathri Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(kunal));
+                break;
+            case"NAGNI TEMPLE":
+                LatLng nagni  = new LatLng(32.2943, 75.944);
+                mMap.addMarker(new MarkerOptions().position(nagni).title("Nagni Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(nagni));
+                break;
+            case"Mahakal Temple":
+                LatLng maha  = new LatLng(32.0088, 76.6536);
+                mMap.addMarker(new MarkerOptions().position(maha).title("Mahakal Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(maha));
+                break;
+            case"Aghanzar Temple":
+                LatLng agh  = new LatLng(32.2208, 76.3344);
+                mMap.addMarker(new MarkerOptions().position(agh).title("Aghanzar Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(agh));
+                break;
+            case"Indru Nag Temple":
+                LatLng indru  = new LatLng(32.2208, 76.3347);
+                mMap.addMarker(new MarkerOptions().position(indru).title("Indru Nag Temple"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(indru));
+                break;
+            case "Kareri Lake":
+                LatLng kareri  = new LatLng(32.3257, 76.2734);
+                mMap.addMarker(new MarkerOptions().position(kareri).title("Kareri Lake"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(kareri));
+                break;
+            case "Dal Lake":
+                LatLng dal  = new LatLng(32.2471, 76.3107);
+                mMap.addMarker(new MarkerOptions().position(dal).title("Dal Lake"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(dal));
+                break;
+            case "Maharana Partap Sagar Lake":
+                LatLng mahar  = new LatLng(31.9766, 76.0508);
+                mMap.addMarker(new MarkerOptions().position(mahar).title("Maharana Partap Sagar Lake"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(mahar));
                 break;
 
 
@@ -112,6 +157,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback,
         }
 
         @Override
+
         public void onLocationChanged(Location location) {
 
         }

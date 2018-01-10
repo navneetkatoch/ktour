@@ -1,6 +1,7 @@
 package com.btes.kangratourism.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,19 +20,22 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.btes.kangratourism.Maps;
 import com.btes.kangratourism.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+
 
 public class Lakes extends Fragment {
-
+    HashMap<String, String> templename;
     TextView textView2;
     ImageView imageView2;
     Button btnmap;
-    String name,photo,place;
+    String s,s2,name,description;
     RequestQueue requestQueue;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,39 +44,73 @@ public class Lakes extends Fragment {
         textView2=(TextView) rootview.findViewById(R.id.textView2);
         imageView2=(ImageView)rootview.findViewById(R.id.imageView2) ;
         btnmap=(Button)rootview.findViewById(R.id.btnmap);
-        String s = getArguments().getString("S");
-     requestQueue = Volley.newRequestQueue(getActivity());
-        String JsonURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=lakes+in+Kangra%20Distt&key=AIzaSyDpgyebhvpT-bN73rihFMAdVggSbLG2hXk";
-        JsonObjectRequest obreq = new JsonObjectRequest(Request.Method.GET, JsonURL,
+        templename = new HashMap<String, String>();
+        s = getArguments().getString("S");
+         requestQueue = Volley.newRequestQueue(getActivity());
+        String JsonURL = "https://busy-additives.000webhostapp.com/hello/lake.php";
+        JsonArrayRequest obreq = new JsonArrayRequest(Request.Method.GET, JsonURL,
 
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<JSONArray>() {
                     @Override
-                    public void onResponse(JSONObject response) {
-                        Log.e("===response===",""+response);
-                        try {
-                           // first1 = response.getString("results");
-                            JSONArray obarr = response.getJSONArray("results");
-                            for(int i = 0;i<obarr.length();i++) {
-                                JSONObject jobj = obarr.getJSONObject(i);
-                                name=jobj.getString("name");
-                                textView2.setText(name);
-                            }
-                            JSONArray obarr1=response.getJSONArray("photos");
-                            for(int i=0;i<obarr1.length();i++)
-                            {
-                                JSONObject jobj1=obarr1.getJSONObject(i);
-                                photo=jobj1.getString("photo_reference");
+                    public void onResponse(JSONArray response) {
+                      try {
+                            for(int i = 0;i<response.length();i++) {
+                                JSONObject jobj2=response.getJSONObject(i);
+                                name=jobj2.getString("Name");
+                                JSONObject jobj = response.getJSONObject(i);
+                                description = jobj.getString("Description");
+                                templename.put(name,description);
 
                             }
-                            } catch (JSONException e) {
+                        } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }
+                        //Log.e("hello",templename.toString());
+                         s2=templename.get(s);
+                         switch (s)
+                         {
+                                     case"Kareri Lake":
+                                 textView2.setText(s2);
+                                 imageView2.setImageResource(R.drawable.kareri);
+                                         btnmap.setOnClickListener(new View.OnClickListener() {
+                                             @Override
+                                             public void onClick(View view) {
+                                                 Intent i=new Intent(getActivity(),Maps.class);
+                                                 i.putExtra("S","Kareri Lake");
+                                                 startActivity(i);
+                                             }
+                                         });
+                                 break;
+                                case"Dal Lake":
+                                textView2.setText(s2);
+                                  imageView2.setImageResource(R.drawable.dallake1);
+                                    btnmap.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View view) {
+                                            Intent i=new Intent(getActivity(),Maps.class);
+                                            i.putExtra("S","Dal Lake");
+                                            startActivity(i);
+                                        }
+                                    });
+                               break;
+                                 case"Maharana Partap Sagar Lake":
+                                   textView2.setText(s2);
+                                   imageView2.setImageResource(R.drawable.maharanapratapsagar);
+                                     btnmap.setOnClickListener(new View.OnClickListener() {
+                                         @Override
+                                         public void onClick(View view) {
+                                             Intent i=new Intent(getActivity(),Maps.class);
+                                             i.putExtra("S","Maharana Partap Sagar Lake");
+                                             startActivity(i);
+                                         }
+                                     });
+                                 break;
+                         }
+
+                        }
 
                 },
-                // The final parameter overrides the method onErrorResponse() and passes VolleyError
-                //as a parameter
-                new Response.ErrorListener() {
+               new Response.ErrorListener() {
                     @Override
                     // Handles errors that occur due to Volley
                     public void onErrorResponse(VolleyError error) {
@@ -80,27 +118,8 @@ public class Lakes extends Fragment {
                     }
                 }
         );
-        switch (s)
-        {
-            case"Kareri Lake":
-                textView2.setText(name);
-                imageView2.setImageResource(R.drawable.kareri);
-                break;
-            case"Dal Lake":
-                textView2.setText(name);
-                imageView2.setImageResource(R.drawable.dallake1);
-                break;
-            case"Maharana Partap Sagar Lake":
-                textView2.setText(name);
-                imageView2.setImageResource(R.drawable.maharanapratapsagar);
-                break;
-        }
-        // Adds the JSON object request "obreq" to the request queue
-       // requestQueue.add(obreq);
-
-
-
-        return rootview;
+        requestQueue.add(obreq);
+       return rootview;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

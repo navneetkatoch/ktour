@@ -1,5 +1,6 @@
 package com.btes.kangratourism;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -25,8 +26,12 @@ public class drawer extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
+
         toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+
         toolbar.setTitle("Kangra Tourism");
         Home c=new Home();
         toolbar.setTitle("Home");
@@ -41,6 +46,7 @@ public class drawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -64,7 +70,7 @@ public class drawer extends AppCompatActivity
         }
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.drawer, menu);
@@ -80,11 +86,11 @@ public class drawer extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            return false;
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -117,6 +123,10 @@ public class drawer extends AppCompatActivity
             frg1.commit();
 
         } else if (id == R.id.gallery) {
+
+          Intent i=new Intent(getApplicationContext(), com.btes.kangratourism.Gallery.class);
+            startActivity(i);
+
 
         } else if (id == R.id.share) {
 
