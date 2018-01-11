@@ -1,5 +1,6 @@
 package com.btes.kangratourism.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -38,6 +39,15 @@ public class Touristplaces extends Fragment {
     Toolbar toolbar;
     String name,description,s;
     RequestQueue requestQueue;
+    private ProgressDialog pDialog;
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,11 +58,15 @@ public class Touristplaces extends Fragment {
         textView2=(TextView) rootview.findViewById(R.id.textView2);
         imageView2=(ImageView)rootview.findViewById(R.id.imageView2) ;
         btnmap=(Button)rootview.findViewById(R.id.btnmap);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Please wait...");
+        pDialog.setCancelable(false);
         templename = new HashMap<String, String>();
         s = getArguments().getString("S");
         Log.e("NAVNEET",s);
         requestQueue = Volley.newRequestQueue(this.getActivity());
         String JsonURL = "https://busy-additives.000webhostapp.com/hello/touristplaces.php";
+        showpDialog();
         JsonArrayRequest obreq = new JsonArrayRequest(Request.Method.GET, JsonURL,
 
                 new Response.Listener<JSONArray>() {
@@ -109,7 +123,7 @@ public class Touristplaces extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","BRIJESHWARI TEMPLE");
+                                        i.putExtra("S","Bhatu Monestari");
                                         startActivity(i);
                                     }
                                 });
@@ -121,7 +135,7 @@ public class Touristplaces extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","BAIJNATH TEMPLE");
+                                        i.putExtra("S","Palampur Tea Garden");
                                         startActivity(i);
                                     }
                                 });
@@ -134,7 +148,7 @@ public class Touristplaces extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","Mahakal Temple");
+                                        i.putExtra("S","Gopalpur Zoo");
                                         startActivity(i);
                                     }
                                 });
@@ -146,33 +160,31 @@ public class Touristplaces extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","CHAMUNDA TEMPLE");
+                                        i.putExtra("S","Sobha Singh Art Gallery");
                                         startActivity(i);
                                     }
                                 });
                                 break;
                             case "Mcleodganj Monestari":
-                                // toolbar.setTitle("JWALAMUKHI TEMPLE");
-                                textView2.setText(s2);
+                               textView2.setText(s2);
                                 imageView2.setImageResource(R.drawable.dalai);
                                 btnmap.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","Aghanzar Temple");
+                                        i.putExtra("S","Mcleodganj Monestari");
                                         startActivity(i);
                                     }
                                 });
                                 break;
                             case "Bhagsu Water Fall":
-                                // toolbar.setTitle("JWALAMUKHI TEMPLE");
                                 textView2.setText(s2);
                                 imageView2.setImageResource(R.drawable.bhagsu);
                                 btnmap.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","Indru Nag Temple");
+                                        i.putExtra("S","Bhagsu Water Fall");
                                         startActivity(i);
                                     }
                                 });
@@ -184,7 +196,7 @@ public class Touristplaces extends Fragment {
                                     @Override
                                     public void onClick(View view) {
                                         Intent i=new Intent(getActivity(),Maps.class);
-                                        i.putExtra("S","MASROOR TEMPLE");
+                                        i.putExtra("S","Gyuto Monastery");
                                         startActivity(i);
                                     }
                                 });
@@ -204,6 +216,7 @@ public class Touristplaces extends Fragment {
 
 
                         }
+                        hidepDialog();
 
 
                     }
@@ -216,6 +229,7 @@ public class Touristplaces extends Fragment {
                     // Handles errors that occur due to Volley
                     public void onErrorResponse(VolleyError error) {
                         Log.e("Volley", "Error");
+                        hidepDialog();
                     }
                 }
         );

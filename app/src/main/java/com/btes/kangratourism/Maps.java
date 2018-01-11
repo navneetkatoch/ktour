@@ -132,6 +132,56 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback,
                 mMap.addMarker(new MarkerOptions().position(mahar).title("Maharana Partap Sagar Lake"));
                 mMap.moveCamera(CameraUpdateFactory.newLatLng(mahar));
                 break;
+            case "Heritage Village Pragpur":
+                LatLng hvp  = new LatLng(31.8229, 76.2117);
+                mMap.addMarker(new MarkerOptions().position(hvp).title("Heritage Village Pragpur"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(hvp));
+                break;
+            case "Kangra Fort":
+                LatLng kf  = new LatLng(32.0873, 76.2561);
+                mMap.addMarker(new MarkerOptions().position(kf).title("Kangra Fort"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(kf));
+                break;
+            case "Bhatu Monestari":
+                LatLng bm  = new LatLng(31.8618, 76.4568);
+                mMap.addMarker(new MarkerOptions().position(bm).title("Bhatu Monestari"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(bm));
+                break;
+            case "Palampur Tea Garden":
+                LatLng ptg  = new LatLng(32.1108, 76.5362);
+                mMap.addMarker(new MarkerOptions().position(ptg).title("Palampur Tea Garden"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(ptg));
+                break;
+            case "Gopalpur Zoo":
+                LatLng gz  = new LatLng(32.1406, 76.4551);
+                mMap.addMarker(new MarkerOptions().position(gz).title("Gopalpur Zoo"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(gz));
+                break;
+            case "Sobha Singh Art Gallery":
+                LatLng ssag  = new LatLng(32.0388, 76.5705);
+                mMap.addMarker(new MarkerOptions().position(ssag).title("Sobha Singh Art Gallery"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(ssag));
+                break;
+            case "Mcleodganj Monestari":
+                LatLng mm = new LatLng(32.2426, 76.3213);
+                mMap.addMarker(new MarkerOptions().position(mm).title("Mcleodganj Monestari"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(mm));
+                break;
+            case "Bhagsu Water Fall":
+                LatLng bwf  = new LatLng(32.2486, 76.3399);
+                mMap.addMarker(new MarkerOptions().position(bwf).title("Bhagsu Water Fall"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(bwf));
+                break;
+            case "Gyuto Monastery":
+                LatLng gm  = new LatLng(32.1972, 76.3409);
+                mMap.addMarker(new MarkerOptions().position(gm).title("Gyuto Monastery"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(gm));
+                break;
+            case "Pong Dam Sanchutary":
+                LatLng pds  = new LatLng(31.9766, 76.0508);
+                mMap.addMarker(new MarkerOptions().position(pds).title("Pong Dam Sanchutary"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(pds));
+                break;
 
 
 

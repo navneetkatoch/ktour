@@ -27,6 +27,8 @@ public class Second extends AppCompatActivity {
     int timage[]={R.drawable.heritage,R.drawable.kangrafort,R.drawable.bhatumonestri,R.drawable.palampurtea,R.drawable.gopalpurzoo,R.drawable.sobhasinghsartgallery,R.drawable.dalai,R.drawable.bhagsu,R.drawable.gyto,R.drawable.pong};
    String trs[]={"Bada Bhangal","Himani Chamunda","Triund and Indhar Pass"};
    int trsimage[]={R.drawable.badabhangal,R.drawable.himanichamunda,R.drawable.triund1};
+   String hs[]={"The Citadel Resorts Hotel", "The Exotica Hotel","The Origin Hotel","Center Point Hotel","Nature Bloom Resort Hotel","White Ridge Hotel","Kangra Rodeway Inn Hotel","Mayur Hotel ","Club Mahindra Dharamshala Hotel","The Pavilion Hotel","The Grand Raj Hotel ","Taragarh Palace Hotel"};
+   int himage[]={R.drawable.thecitaderesortshotel,R.drawable.theexoticahotel,R.drawable.theoriginhotel,R.drawable.centerpointhotel,R.drawable.naturebloomresorthotel,R.drawable.whiteridgehotel,R.drawable.hotelkangrarodeway,R.drawable.mayurhotel,R.drawable.cmahindradharamshala,R.drawable.thepavilionhotel,R.drawable.thegrandrajhotel,R.drawable.taragarhpalacehotel1};
     ListView ltsview;
     Toolbar toolbar;
     int i;
@@ -61,6 +63,7 @@ public class Second extends AppCompatActivity {
             });
             break;
             case "Lakes":
+                toolbar.setTitle("Lakes");
                 MyAdapter2 adapter=new MyAdapter2(getApplicationContext(),ls,limage);
                 ltsview.setAdapter(adapter);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -74,6 +77,7 @@ public class Second extends AppCompatActivity {
                 });
                 break;
             case "Tourist Places":
+                toolbar.setTitle("Tourist Places");
                 MyAdapter2 adapter2=new MyAdapter2(getApplicationContext(),ts,timage);
                 ltsview.setAdapter(adapter2);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,6 +90,7 @@ public class Second extends AppCompatActivity {
                 });
                 break;
             case "Trekking Places":
+                toolbar.setTitle("Trekking Places");
                 MyAdapter2 adapter4=new MyAdapter2(getApplicationContext(),trs,trsimage);
                 ltsview.setAdapter(adapter4);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -98,7 +103,8 @@ public class Second extends AppCompatActivity {
                 });
                 break;
             case "Hotels":
-                MyAdapter2 adapter5=new MyAdapter2(getApplicationContext(),s,image);
+                toolbar.setTitle("Hotels");
+                MyAdapter2 adapter5=new MyAdapter2(getApplicationContext(),hs,himage);
                 ltsview.setAdapter(adapter5);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
@@ -110,6 +116,7 @@ public class Second extends AppCompatActivity {
                 });
                 break;
             case "Transport Facility":
+                toolbar.setTitle("Transport Facility");
                 MyAdapter2 adapter6=new MyAdapter2(getApplicationContext(),s,image);
                 ltsview.setAdapter(adapter6);
                 ltsview.setOnItemClickListener(new AdapterView.OnItemClickListener() {

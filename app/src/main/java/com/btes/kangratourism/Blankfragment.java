@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.btes.kangratourism.Fragments.Hotel;
 import com.btes.kangratourism.Fragments.Lakes;
 import com.btes.kangratourism.Fragments.Temples;
 import com.btes.kangratourism.Fragments.Touristplaces;
@@ -17,7 +18,7 @@ public class Blankfragment extends FragmentActivity {
     String s1;
     private Temples t=null;
     private FragmentManager manager=null;
-    private   FragmentTransaction ft,ft1,ft2,ft3;
+    private   FragmentTransaction ft,ft1,ft2,ft3,ft4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +34,10 @@ public class Blankfragment extends FragmentActivity {
                 {
                     s1="Lake";
                 }
+                else if(s.contains("Hotel"))
+                {
+                    s1="Hotel";
+                }
                 else if (s.contains("Bhangal")|| s.contains("Chamunda")|| s.contains("Pass"))
                 {
                     s1="Trekking Places";
@@ -41,7 +46,7 @@ public class Blankfragment extends FragmentActivity {
                 {
                     s1="Tourist Places";
                 }
-        //Log.e("nnnnnn",s1);
+        Log.e("nnnnnn",s1);
                 switch (s1)
                 {
                     case "Temple":
@@ -56,6 +61,7 @@ public class Blankfragment extends FragmentActivity {
                     ft.commit();
                     break;
                     case "Lake":
+                        toolbar.setTitle("Lake");
                         Bundle bundle1 = new Bundle();
                         bundle1.putString("S", s);
                         Lakes l=new Lakes();
@@ -66,6 +72,7 @@ public class Blankfragment extends FragmentActivity {
                         ft1.commit();
                         break;
                     case "Tourist Places":
+                        toolbar.setTitle("Tourist Places");
                         Bundle bundle2 = new Bundle();
                         bundle2.putString("S", s);
                         Touristplaces tpl=new Touristplaces();
@@ -76,6 +83,7 @@ public class Blankfragment extends FragmentActivity {
                         ft2.commit();
                         break;
                     case "Trekking Places":
+                        toolbar.setTitle("Trekking Places");
                         Bundle bundle3 = new Bundle();
                         bundle3.putString("S", s);
                         Trekkingplaces tre=new Trekkingplaces();
@@ -84,6 +92,17 @@ public class Blankfragment extends FragmentActivity {
                         ft3=manager.beginTransaction();
                         ft3.add(R.id.fragmentblank,tre);
                         ft3.commit();
+                        break;
+                    case "Hotel":
+                        toolbar.setTitle("Hotel");
+                        Bundle bundle4 = new Bundle();
+                        bundle4.putString("S", s);
+                        Hotel ht=new Hotel();
+                        ht.setArguments(bundle4);
+                        manager=getSupportFragmentManager();
+                        ft4=manager.beginTransaction();
+                        ft4.add(R.id.fragmentblank,ht);
+                        ft4.commit();
                         break;
                 }
 

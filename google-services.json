@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "601791324811",
+    "firebase_url": "https://nanha-2082.firebaseio.com",
+    "project_id": "nanha-2082",
+    "storage_bucket": "nanha-2082.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601791324811:android:c5e22a5cece1ca68",
+        "android_client_info": {
+          "package_name": "com.kangratourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601791324811-1ohliv3ekels1c23v0adtau6f8t2be7p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpgyebhvpT-bN73rihFMAdVggSbLG2hXk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

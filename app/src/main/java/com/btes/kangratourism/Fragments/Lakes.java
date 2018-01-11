@@ -1,5 +1,6 @@
 package com.btes.kangratourism.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -37,6 +38,15 @@ public class Lakes extends Fragment {
     Button btnmap;
     String s,s2,name,description;
     RequestQueue requestQueue;
+    private ProgressDialog pDialog;
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,10 +54,14 @@ public class Lakes extends Fragment {
         textView2=(TextView) rootview.findViewById(R.id.textView2);
         imageView2=(ImageView)rootview.findViewById(R.id.imageView2) ;
         btnmap=(Button)rootview.findViewById(R.id.btnmap);
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setMessage("Please wait...");
+        pDialog.setCancelable(false);
         templename = new HashMap<String, String>();
         s = getArguments().getString("S");
          requestQueue = Volley.newRequestQueue(getActivity());
         String JsonURL = "https://busy-additives.000webhostapp.com/hello/lake.php";
+        showpDialog();
         JsonArrayRequest obreq = new JsonArrayRequest(Request.Method.GET, JsonURL,
 
                 new Response.Listener<JSONArray>() {
@@ -106,6 +120,7 @@ public class Lakes extends Fragment {
                                      });
                                  break;
                          }
+                         hidepDialog();
 
                         }
 
@@ -114,7 +129,7 @@ public class Lakes extends Fragment {
                     @Override
                     // Handles errors that occur due to Volley
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("Volley", "Error");
+                        Log.e("Volley", "Error");hidepDialog();
                     }
                 }
         );

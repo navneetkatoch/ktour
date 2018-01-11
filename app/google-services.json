@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1006361377166",
+    "firebase_url": "https://kangratourism.firebaseio.com",
+    "project_id": "kangratourism",
+    "storage_bucket": "kangratourism.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006361377166:android:995c95d735f4dd9b",
+        "android_client_info": {
+          "package_name": "com.btes.kangratourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006361377166-4kguigs4ggmkdqd45ldsi08q3lfgq3pn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.btes.kangratourism",
+            "certificate_hash": "cc25e40f401eff9ddd4b64fb84d1d20578f08370"
+          }
+        },
+        {
+          "client_id": "1006361377166-ha5o31klqthf67gfqtnh33ik4983buqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMpXyNx0XLZVhCO2-mFOW0SNs29Vq-2Ss"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006361377166-ha5o31klqthf67gfqtnh33ik4983buqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
